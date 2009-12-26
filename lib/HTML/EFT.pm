@@ -3,6 +3,33 @@ use strict;
 use warnings;
 use 5.00800;
 our $VERSION = '0.01';
+use UNIVERSAL::require;
+use Data::OptList;
+
+sub new {
+    my $class = shift;
+
+    my $opts = Data::OptList::mkopt(@_);
+    my @children = map {
+        my ($module_name, $args) = @{$_};
+        $module_name = $module_name =~ s/^\+// ? $module_name : "HTML::EFT::$module_name";
+        $module_name->use or die $@;
+        $module_name->new(%$args);
+    } @$opts;
+
+    bless {children => \@children}, $class;
+}
+
+sub extract {
+    my ($self, $url, $html) = @_;
+    for my $child (@{$self->children}) {
+        my $ret = $child->extract($url, $html);
+        if ($ret) {
+            return wantarray ? ($ret, $child) : $ret;
+        }
+    }
+    return;
+}
 
 1;
 __END__
@@ -15,7 +42,13 @@ HTML::EFT -
 
 =head1 SYNOPSIS
 
-  use HTML::EFT;
+    use HTML::EFT;
+    my $eft = HTML::EFT->new(
+        'AutoPagerize',
+        'LDRFullFeed' => {data => []},
+        'ExtractContent',
+    );
+    my $extracted_html = $eft->extract($url, $html);
 
 =head1 DESCRIPTION
 
