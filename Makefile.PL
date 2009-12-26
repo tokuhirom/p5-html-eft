@@ -8,6 +8,7 @@ requires 'Data::OptList' => 0.104;
 requires 'HTML::ExtractContent';
 requires 'UNIVERSAL::require';
 
+readme_markdown_from 'lib/HTML/EFT.pm';
 tests 't/*.t t/*/*.t t/*/*/*.t t/*/*/*/*.t';
 test_requires 'Test::More';
 test_requires 'YAML';
