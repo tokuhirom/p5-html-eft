@@ -9,7 +9,7 @@ use Data::OptList;
 sub new {
     my $class = shift;
 
-    my $opts = Data::OptList::mkopt(@_);
+    my $opts = Data::OptList::mkopt(\@_);
     my @children = map {
         my ($module_name, $args) = @{$_};
         $module_name = $module_name =~ s/^\+// ? $module_name : "HTML::EFT::$module_name";
@@ -22,7 +22,7 @@ sub new {
 
 sub extract {
     my ($self, $url, $html) = @_;
-    for my $child (@{$self->children}) {
+    for my $child (@{$self->{children}}) {
         my $ret = $child->extract($url, $html);
         if ($ret) {
             return wantarray ? ($ret, $child) : $ret;
