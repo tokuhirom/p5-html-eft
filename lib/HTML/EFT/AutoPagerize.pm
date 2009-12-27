@@ -48,7 +48,7 @@ __END__
 
 =head1 NAME
 
-HTML::EFT::AutoPagerize - make html as full content by AutoPagerize metadata
+HTML::EFT::AutoPagerize - make HTML as full content by AutoPagerize meta data
 
 =head1 SYNOPSIS
 

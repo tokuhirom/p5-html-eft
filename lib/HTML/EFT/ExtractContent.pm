@@ -21,7 +21,7 @@ __END__
 
 =head1 NAME
 
-HTML::EFT::ExtractContent - make html as full content by HTML::EFT::ExtractContent 
+HTML::EFT::ExtractContent - make HTML as full content by HTML::EFT::ExtractContent 
 
 =head1 SYNOPSIS
 

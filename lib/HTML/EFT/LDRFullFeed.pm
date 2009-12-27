@@ -48,7 +48,7 @@ __END__
 
 =head1 NAME
 
-HTML::EFT::LDRFullFeed - make html as full content by LDRFullFeed metadata
+HTML::EFT::LDRFullFeed - make HTML as full content by LDRFullFeed meta data
 
 =head1 SYNOPSIS
 
