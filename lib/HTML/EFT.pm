@@ -2,7 +2,7 @@ package HTML::EFT;
 use strict;
 use warnings;
 use 5.00800;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 use UNIVERSAL::require;
 use Data::OptList;
 
