@@ -7,6 +7,7 @@ requires 'LWP::UserAgent' => 5.833;
 requires 'Data::OptList' => 0.104;
 requires 'HTML::ExtractContent';
 requires 'UNIVERSAL::require';
+requires 'HTML::TreeBuilder::XPath' => 0.12;
 
 readme_markdown_from 'lib/HTML/EFT.pm';
 tests 't/*.t t/*/*.t t/*/*/*.t t/*/*/*/*.t';
